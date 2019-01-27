@@ -3,7 +3,7 @@ package com.codeboy.qianghongbao.job;
 import android.content.Context;
 
 import com.codeboy.qianghongbao.Config;
-import com.codeboy.qianghongbao.QiangHongBaoService;
+import com.codeboy.qianghongbao.GrabWXRedPacketService;
 
 /**
  * <p>Created 16/1/16 上午12:38.</p>
@@ -12,12 +12,12 @@ import com.codeboy.qianghongbao.QiangHongBaoService;
  *
  * @author LeonLee
  */
-public abstract class BaseAccessbilityJob implements AccessbilityJob {
+public abstract class BaseAccessibilityJob implements AccessibilityJob {
 
-    private QiangHongBaoService service;
+    private GrabWXRedPacketService service;
 
     @Override
-    public void onCreateJob(QiangHongBaoService service) {
+    public void onCreateJob(GrabWXRedPacketService service) {
         this.service = service;
     }
 
@@ -29,7 +29,7 @@ public abstract class BaseAccessbilityJob implements AccessbilityJob {
         return service.getConfig();
     }
 
-    public QiangHongBaoService getService() {
+    public GrabWXRedPacketService getService() {
         return service;
     }
 }

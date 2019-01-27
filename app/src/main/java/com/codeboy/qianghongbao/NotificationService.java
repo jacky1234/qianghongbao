@@ -16,16 +16,16 @@ import android.util.Log;
  * @author LeonLee
  */
 @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-public class QHBNotificationService extends NotificationListenerService {
+public class NotificationService extends NotificationListenerService {
 
-    private static final String TAG = "QHBNotificationService";
+    private static final String TAG = "NotificationService";
 
-    private static QHBNotificationService service;
+    private static NotificationService service;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             onListenerConnected();
         }
     }
@@ -36,16 +36,16 @@ public class QHBNotificationService extends NotificationListenerService {
 
     @Override
     public void onNotificationPosted(final StatusBarNotification sbn) {
-        if(BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Log.i(TAG, "onNotificationRemoved");
         }
-        if(!getConfig().isAgreement()) {
+        if (!getConfig().isAgreement()) {
             return;
         }
-        if(!getConfig().isEnableNotificationService()) {
+        if (!getConfig().isEnableNotificationService()) {
             return;
         }
-        QiangHongBaoService.handeNotificationPosted(new IStatusBarNotification() {
+        GrabWXRedPacketService.handNotificationPosted(new IStatusBarNotification() {
             @Override
             public String getPackageName() {
                 return sbn.getPackageName();
@@ -60,17 +60,17 @@ public class QHBNotificationService extends NotificationListenerService {
 
     @Override
     public void onNotificationRemoved(StatusBarNotification sbn) {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             super.onNotificationRemoved(sbn);
         }
-        if(BuildConfig.DEBUG) {
+        if (BuildConfig.DEBUG) {
             Log.i(TAG, "onNotificationRemoved");
         }
     }
 
     @Override
     public void onListenerConnected() {
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             super.onListenerConnected();
         }
 
@@ -91,9 +91,11 @@ public class QHBNotificationService extends NotificationListenerService {
         sendBroadcast(intent);
     }
 
-    /** 是否启动通知栏监听*/
+    /**
+     * 是否启动通知栏监听
+     */
     public static boolean isRunning() {
-        if(service == null) {
+        if (service == null) {
             return false;
         }
         return true;

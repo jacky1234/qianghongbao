@@ -20,10 +20,11 @@ import java.io.FileOutputStream;
  */
 public final class BitmapUtils {
 
-    private BitmapUtils() {}
+    private BitmapUtils() {
+    }
 
     public static boolean saveBitmap(Context context, File output, Bitmap bitmap) {
-        if(output.exists()) {
+        if (output.exists()) {
             return false;
         }
         FileOutputStream fos = null;
@@ -36,18 +37,21 @@ public final class BitmapUtils {
             e.printStackTrace();
             return false;
         } finally {
-            if(fos != null) {
+            if (fos != null) {
                 try {
                     fos.close();
-                } catch (Exception e) {}
-
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
 
 
     }
 
-    /** 加入到系统的图库中*/
+    /**
+     * 加入到系统的图库中
+     */
     private static void insertMedia(Context context, File output, String mime) {
         try {
             ContentValues values = new ContentValues();
@@ -57,6 +61,7 @@ public final class BitmapUtils {
             context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, values);
             //通知系统去扫描
             context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(output)));
-        } catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 }

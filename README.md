@@ -148,3 +148,17 @@ feedbackAllMask | 所有以上的反馈
 英文名:Leon<br>
 个人博客:[http://www.happycodeboy.com](http://www.happycodeboy.com)<br>
 Email:codeboy2013@gmail.com<br>
+
+
+
+
+#### 打开 DDMS
+新版Android studio 3.0+ 不支持用AS直接打开DDMS了，但是有的时候我们还是需要这项工具，比如研究各个应用的View层级。
+方法如下：
+1. 在sdk目录下打开
+    a.  cd tools
+        sudo ./monitor        [if it not worked,try method b]
+    b.
+
+2. [How to change default version?](https://stackoverflow.com/questions/21964709/how-to-set-or-change-the-default-java-jdk-version-on-os-x)
+

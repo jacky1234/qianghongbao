@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CodeBoy抢红包</string>
+    <string name="app_name">Jacky-抢红包</string>
     <string name="main_name">抢红包</string>
     <string name="accessibility_description">启动抢红包服务，支持微信。</string>
     <string name="service_name">CodeBoy抢红包</string>
@@ -39,7 +39,7 @@
     <string name="agreement_title">免责声明</string>
     <string name="agreement_message">本软件仅供学习使用，完全模拟人工操作，抢红包速度取决于你手机的性能与网络，不涉及任何第三方软件接口，本软件已开放源代码，无病毒、不收集用户隐私信息，禁止使用本软件参与赌博活动。一切因使用“%1$s”造成的任何后果，%1$s概不负责，亦不承担任何法律责任!</string>
 
-    <string name="qr_wx_id">happycodeboy</string>
-    <string name="qr_tips">点击复制微信号:happycodeboy</string>
+    <string name="qr_wx_id">jacydosonlove</string>
+    <string name="qr_tips">点击复制微信号:jacydosonlove</string>
 
 </resources>

@@ -2,8 +2,8 @@ package com.codeboy.qianghongbao.job;
 
 import android.view.accessibility.AccessibilityEvent;
 
+import com.codeboy.qianghongbao.GrabWXRedPacketService;
 import com.codeboy.qianghongbao.IStatusBarNotification;
-import com.codeboy.qianghongbao.QiangHongBaoService;
 
 /**
  * <p>Created 16/1/16 上午12:32.</p>
@@ -12,11 +12,16 @@ import com.codeboy.qianghongbao.QiangHongBaoService;
  *
  * @author LeonLee
  */
-public interface AccessbilityJob {
+public interface AccessibilityJob {
     String getTargetPackageName();
-    void onCreateJob(QiangHongBaoService service);
+
+    void onCreateJob(GrabWXRedPacketService service);
+
     void onReceiveJob(AccessibilityEvent event);
+
     void onStopJob();
+
     void onNotificationPosted(IStatusBarNotification service);
+
     boolean isEnable();
 }
